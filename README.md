@@ -2,7 +2,6 @@
 
 > A weather-aware agricultural e-commerce platform with real-time market insights and data provenance tracking.
 
----
 
 ##  Features
 
@@ -13,7 +12,6 @@
 - **Authentication** — Secure login system
 - **Supabase Backend** — Cloud database with fallback mock DB for local development
 
----
 
 ## Tech Stack
 
@@ -24,7 +22,6 @@
 | Database | Supabase (PostgreSQL) |
 | Build Tool | Vite |
 
----
 
 ## Installation
 
@@ -50,7 +47,6 @@ cp .env.example .env
 npm run dev
 ```
 
----
 
 ## Environment Variables
 
@@ -61,15 +57,13 @@ SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_SERVICE_KEY=your-service-role-key
 SUPABASE_ANON_KEY=your-anon-key
 PORT=3000
-```
+
 
 > Never commit your `.env` file. It contains secret keys.
 
----
 
 ## Project Structure
 
-```
 agromart/
 ├── src/
 │   ├── components/
@@ -89,9 +83,7 @@ agromart/
 ├── server.cjs
 ├── .env.example
 └── package.json
-```
 
----
 
 ##  Available Scripts
 
