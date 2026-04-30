@@ -50,17 +50,6 @@ npm run dev
 
 ## Environment Variables
 
-Create a `.env` file based on `.env.example`:
-
-```env
-SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_SERVICE_KEY=your-service-role-key
-SUPABASE_ANON_KEY=your-anon-key
-PORT=3000
-
-
-> Never commit your `.env` file. It contains secret keys.
-
 
 ## Project Structure
 
