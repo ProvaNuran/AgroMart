@@ -73,7 +73,6 @@ agromart/
 ├── .env.example
 └── package.json
 
-
 ##  Available Scripts
 
 | Command | Description |
