@@ -1,21 +1,21 @@
-# 🌾 AgroMart
+#  AgroMart
 
 > A weather-aware agricultural e-commerce platform with real-time market insights and data provenance tracking.
 
 ---
 
-## 🚀 Features
+##  Features
 
-- 🌦️ **Weather-Aware Pricing** — Product prices and recommendations adjust based on real-time weather data
-- 🛒 **Agricultural E-Commerce** — Buy and sell farm products online
-- 📊 **Dashboard** — Real-time market insights for farmers and buyers
-- 🔍 **Data Provenance Tracking** — Full audit trail of every product and transaction
-- 🔐 **Authentication** — Secure login system
-- 🗄️ **Supabase Backend** — Cloud database with fallback mock DB for local development
+- **Weather-Aware Pricing** — Product prices and recommendations adjust based on real-time weather data
+- **Agricultural E-Commerce** — Buy and sell farm products online
+- **Dashboard** — Real-time market insights for farmers and buyers
+- **Data Provenance Tracking** — Full audit trail of every product and transaction
+- **Authentication** — Secure login system
+- **Supabase Backend** — Cloud database with fallback mock DB for local development
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -26,7 +26,7 @@
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 ### Prerequisites
 - Node.js 18+
@@ -52,7 +52,7 @@ npm run dev
 
 ---
 
-## 🔑 Environment Variables
+## Environment Variables
 
 Create a `.env` file based on `.env.example`:
 
@@ -63,11 +63,11 @@ SUPABASE_ANON_KEY=your-anon-key
 PORT=3000
 ```
 
-> ⚠️ Never commit your `.env` file. It contains secret keys.
+> Never commit your `.env` file. It contains secret keys.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 agromart/
@@ -93,7 +93,7 @@ agromart/
 
 ---
 
-## 📜 Available Scripts
+##  Available Scripts
 
 | Command | Description |
 |---------|-------------|
@@ -103,14 +103,4 @@ agromart/
 | `npm run build` | Build for production |
 | `npm run preview` | Preview production build |
 
----
 
-## 🤝 Contributing
-
-Pull requests are welcome! For major changes, please open an issue first.
-
----
-
-## 📄 License
-
-This project is for educational purposes.
