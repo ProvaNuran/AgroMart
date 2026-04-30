@@ -1,6 +1,6 @@
 #  AgroMart
 
-> A weather-aware agricultural e-commerce platform with real-time market insights and data provenance tracking.
+ A weather-aware agricultural e-commerce platform with real-time market insights and data provenance tracking.
 
 
 ##  Features
