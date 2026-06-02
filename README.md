@@ -1,5 +1,3 @@
-<div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&pause=1000&color=2E8B57&center=true&vCenter=true&width=600&lines=AgroMart;Farm+to+Market%2C+Intelligently." alt="AgroMart" />
 # AgroMart
 
 AgroMart is a React + Vite web app for agricultural marketplace/dashboard workflows with a lightweight Express backend and optional Supabase integration.
