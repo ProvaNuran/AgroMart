@@ -48,7 +48,7 @@ Start the Express API server:
 npm run api
 ```
 
-If you want both web and API together in development, run the `dev` script:
+web and API together in development, run the `dev` script:
 
 ```powershell
 npm run dev
