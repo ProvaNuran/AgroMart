@@ -66,7 +66,7 @@ Preview the production build:
 npm run preview
 ```
 
-## Project Structure
+## App Structure
 
 - `src/` - React application source files
 - `public/` - static HTML, CSS, images, and JavaScript assets
@@ -83,4 +83,4 @@ npm run preview
 
 ## License
 
-This project is provided as-is.
+This app is provided as-is.
