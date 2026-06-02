@@ -1,155 +1,60 @@
 <div align="center">
-
-# 🌾 AgroMart
-### *Farm to Market, Intelligently.*
-
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
-[![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Status](https://img.shields.io/badge/Status-Completed-2E8B57?style=for-the-badge)](#)
-
-*A supply chain intelligence platform for Bangladesh's agricultural sector — tracking every shipment from field to buyer with real-time monitoring, spoilage detection, and a tamper-proof audit trail.*
-
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&pause=1000&color=2E8B57&center=true&vCenter=true&width=600&lines=AgroMart;Farm+to+Market%2C+Intelligently." alt="AgroMart" />
 </div>
-
-
-
-## 📌 The Problem
-
-Bangladesh runs on agriculture — yet farmers have no visibility into whether their goods will arrive fresh, sell at a fair price, or reach buyers at all. On the other side, buyers have no way to know where their food came from or why prices shifted overnight.
-
-**AgroMart** closes that gap. It tracks every shipment from farm to warehouse, capturing real-time weather disruptions, cold-chain temperature breaches, and automatic spoilage detection — with a full, immutable audit trail of every system decision.
-
-
-## 🖼️ Screenshots
-
+<br/>
+<div align="center">
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Status](https://img.shields.io/badge/Status-Completed-2E8B57?style=for-the-badge)
+</div>
+---
+## The Problem
+Bangladesh runs on agriculture — but farmers don't know if their goods will arrive fresh, sell fairly, or reach the buyer at all. Buyers have no idea where their food came from or why the price changed overnight.
+AgroMart tracks every shipment from farm to warehouse: real-time weather disruptions, cold-chain temperature breaches, automatic spoilage detection, and a full audit trail of every decision the system made.
+---
+## Screenshots
 | Dashboard | Orders | Shipments |
 |:-:|:-:|:-:|
-| ![Dashboard](screenshots/dashboard1.jpeg) | ![Orders](screenshots/order.jpeg) | ![Shipments](screenshots/Shipment.jpeg) |
-
-| Weather Events | Heat Monitor | Spoilage Detection |
+| ![](screenshots/dashboard1.jpeg) | ![](screenshots/order.jpeg) | ![](screenshots/Shipment.jpeg) |
+| Weather Events | Heat Monitor | Spoilage |
 |:-:|:-:|:-:|
-| ![Weather](screenshots/weather.jpeg) | ![Heat](screenshots/Heat.jpeg) | ![Spoilage](screenshots/Spoilage.jpeg) |
-
-| Price Audit | Provenance Trail | Products |
+| ![](screenshots/weather.jpeg) | ![](screenshots/Heat.jpeg) | ![](screenshots/Spoilage.jpeg) |
+| Price Audit | Provenance | Products |
 |:-:|:-:|:-:|
-| ![Price Audit](screenshots/PriceAudit.jpeg) | ![Provenance](screenshots/Provenance.jpeg) | ![Products](screenshots/Product.jpeg) |
-
-
-
-## 🗄️ Database Architecture
-
+| ![](screenshots/PriceAudit.jpeg) | ![](screenshots/Provenance.jpeg) | ![](screenshots/Product.jpeg) |
+---
+## Database
 ![Schema](screenshots/Schema.PNG)
-
-**14 tables** organized across three responsibility layers:
-
-| Layer | Tables | Purpose |
-|---|---|---|
-| **Core** | `FARMER`, `PRODUCT`, `SHIPMENT`, `ORDER`, `WAREHOUSE` | Entities and transactions |
-| **Monitoring** | `IOT_SENSOR`, `SENSOR_READING`, `WEATHER_EVENT`, `FOOD_SPOILAGE` | Real-time event capture |
-| **Audit** | `PRICE_HISTORY`, `PROVENANCE_EVENT`, `ORDER_AUDIT` | Immutable decision logs |
-
-Every state change is traceable. Nothing is ever silently overwritten.
-
-
-
-## ⚙️ How It Works
-
-### Shipment Lifecycle
-
-
-Shipment Created → Validated by trigger → In Transit
-       ↓                                      ↓
-  Bad data rejected               IoT sensors watch temperature
-                                          ↓
-                              Breach detected → Provenance event logged
-                                          ↓
-                              Weather event (e.g. Sylhet flood)
-                                          ↓
-                         Delay hours + price impact calculated
-                         All affected shipments auto-updated
-                                          ↓
-                              Arrival: Spoilage detected?
-                                   ↙         ↘
-                                 Yes           No
-                                  ↓
-                     Price adjusted · Stock deducted
-                     Loss recorded · Provenance updated
-
-
-Every action — automated or manual — ends up in `PROVENANCE_EVENT`. Pull any shipment ID and get its full story.
-
-
-
-## 🔁 Triggers
-
-| Trigger | Fires | Purpose |
-|---|---|---|
-| `trg_weather_before` | `BEFORE INSERT` on `WEATHER_EVENT` | Calculates price impact from event severity |
-| `trg_weather_after` | `AFTER INSERT` on `WEATHER_EVENT` | Updates all shipments disrupted by the event |
-| `trg_shipment_validate` | `BEFORE INSERT` on `SHIPMENT` | Rejects malformed or invalid inserts |
-| `trg_food_spoilage_calc` | `AFTER INSERT` on `FOOD_SPOILAGE` | Computes loss, adjusts price, deducts stock |
-| `trg_order_status` | `AFTER UPDATE` on `ORDER` | Audits every order status transition |
-
-
-## 🔍 Provenance Queries
-
-Five analytical queries for end-to-end supply chain tracing:
-
-1. **Full Shipment Timeline** — every event for a given shipment, ordered chronologically
-2. **Critical Incidents (Last 30 Days)** — high-severity disruptions across all active shipments
-3. **Weather Delay Cost Analysis** — financial impact broken down by event type and region
-4. **Product Spoilage Patterns** — which products spoil most, at which warehouses, and why
-5. **Farmer Incident Reports** — per-farmer breakdown of disruptions, losses, and recoveries
-
-
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) v18+
-- [Supabase](https://supabase.com/) account (or a local PostgreSQL instance)
-
-### Setup
-
-```bash
-# Clone the repository
-git clone https://github.com/your-org/agromart.git
-cd agromart
-
-# Install dependencies
-npm install
-
-# Configure environment
-cp .env.example .env
-# Add your Supabase URL and anon key to .env
-
-# Run database migrations
-npm run db:migrate
-
-# Seed sample data (optional)
-npm run db:seed
-
-# Start the development server
-npm run dev
-
-##  Team
-
-| Name | Role |
+14 tables across three layers — **core** (farmers, shipments, orders), **monitoring** (IoT sensors, weather, spoilage), and **audit** (price history, provenance events). Every update is traceable.
+---
+## How It Works
+Shipment creation triggers validation — bad data never enters the system. During transit, IoT sensors watch temperature; a breach auto-logs a provenance event. A flood in Sylhet? The system calculates delay hours and price impact by severity, and updates every affected shipment automatically. Spoilage on arrival adjusts price, deducts stock, and records the loss — all inside a single trigger.
+Everything ends up in `PROVENANCE_EVENT`. Pull any shipment and see the full story.
+---
+## Triggers
+| Trigger | Purpose |
 |---|---|
-| **Nuran Farhana Prova** | Database Design · Monitoring Layer |
-| **Shakibul Hassan** | Core Schema · Trigger Logic |
-| **Wasimul Bari Rahat** | Audit System · Provenance Queries |
-
-
-
-## 📄 License
-
-This project was developed as an academic database systems project. Contact the team for usage permissions.
-
-
-
-<div align="center">
-  <sub>Built with 🌱 for Bangladeshi farmers and the buyers who depend on them.</sub>
-</div>
+| `trg_weather_before` | Calculates price impact from a weather event |
+| `trg_weather_after` | Updates all shipments disrupted by that event |
+| `trg_shipment_validate` | Rejects invalid inserts before they land |
+| `trg_food_spoilage_calc` | Computes loss, adjusts price, deducts stock |
+| `trg_order_status` | Audits every order status change |
+---
+## Provenance Queries
+Five queries for tracing the supply chain end-to-end — full shipment timelines, critical incidents in the last 30 days, weather delay cost analysis, product spoilage patterns, and farmer-level incident reports.
+---
+## Team
+Nuran Farhana Prova · Shakibul Hassan · Wasimul Bari Rahat
+# @babel/core
+> Babel compiler core.
+See our website [@babel/core](https://babeljs.io/docs/babel-core) for more information or the [issues](https://github.com/babel/babel/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3A%22pkg%3A%20core%22+is%3Aopen) associated with this package.
+## Install
+Using npm:
+```sh
+npm install --save-dev @babel/core
+```
+or using yarn:
+```sh
+yarn add @babel/core --dev
+```
