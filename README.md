@@ -81,6 +81,3 @@ npm run preview
 - Use `.env` to keep secrets out of the repo
 - The app includes a mock in-memory database when Supabase credentials are not configured
 
-## License
-
-This app is provided as-is.
