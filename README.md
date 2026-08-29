@@ -65,7 +65,7 @@ Preview the production build:
 ```powershell
 npm run preview
 ```
-![Schema](Schema.PNG)
+![Schema](Picture/Schema.PNG)
 
 ## App Structure
 
